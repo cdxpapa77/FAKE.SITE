@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loyd Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000; /* Fond noir */
+            color: #ffffff; /* Texte en blanc */
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #ff5733; /* Couleur de l'en-tête */
+        }
+        .produit {
+            border: 2px solid #ff5733; /* Bordure orange */
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px;
+            text-align: center;
+            background-color: #222222; /* Fond des produits */
+            display: inline-block;
+            width: calc(30% - 40px);
+            vertical-align: top;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .promotion {
+            background-color: #ffeb3b; /* Promotion jaune */
+            color: #000000; /* Texte noir pour la promotion */
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8em;
+            color: #cccccc; /* Couleur du texte de pied de page */
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .site-troll {
+            font-size: 0.6em;
+            color: #ff5733;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Loyd Shop</h1>
+    <p>"Votre destination pour tous vos besoins informatiques !"</p>
+</header>
+
+<div class="container" id="product-container">
+    <!-- Articles informatiques avec images -->
+    <script>
+        const products = [];
+        const productNames = [
+            "PlayStation 5", "Xbox Series X", "Nintendo Switch", "PC Portable Gamer",
+            "Clavier Mécanique", "Souris Gamer", "iPhone 13", "Samsung Galaxy S21",
+            "Écran 27 pouces", "Casque Bluetooth", "Tablette Samsung", "Disque Dur Externe",
+            "Webcam HD", "Imprimante 3D", "Enceinte Bluetooth", "Montre Connectée",
+            "Carte Graphique", "Disque SSD", "Chargeur Solaire", "Imprimante 3D",
+            "Ensemble de câbles", "Station d'accueil USB-C", "Manette de Jeu", "Microphone USB",
+            "Écran Gaming", "Clé USB", "Périphériques VR", "Câble HDMI", "Support de Téléphone",
+            "Écouteurs Bluetooth", "Station de Charge", "Ensemble de Haut-parleurs", 
+            "Routeur Wi-Fi", "Boîtier de PC", "Éclairage LED", "Adaptateur USB-C", 
+            "Support de Moniteur", "Écran 32 pouces", "Station de Réparation", "Chargeur Sans Fil"
+        ];
+        
+        for (let i = 0; i < 1000; i++) {
+            const productIndex = i % productNames.length;
+            products.push({
+                name: `${productNames[productIndex]} ${i + 1}`,
+                price: `${(Math.random() * 1000).toFixed(2)} €`,
+                description: `Description de ${productNames[productIndex]} ${i + 1}. Il s'agit d'un excellent article !`,
+                image: `https://source.unsplash.com/200x200/?computer,${i + 1}` // Images aléatoires liées à l'informatique  
+            });
+        }
+
+        const container = document.getElementById('product-container');
+        products.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('produit');
+            productDiv.innerHTML = `
+                <h2>${product.name}</h2>
+                <a href="${product.image}" target="_blank">
+                    <img src="${product.image}" alt="${product.name}">
+                </a>
+                <p>Prix : ${product.price}</p>
+                <p>${product.description}</p>
+            `;
+            container.appendChild(productDiv);
+        });
+    </script>
+</div>
+
+<div class="promotion">
+    <p>Offre du jour : Achetez 3 produits et obtenez le quatrième gratuite !</p>
+</div>
+
+<footer>
+    <p class="site-troll">Moyens site troll</p>
+    <p>Pour toute question ou pour passer une commande, contactez-nous à : contact@loydshop.com</p>
+</footer>
+
+</body>
+</html>
